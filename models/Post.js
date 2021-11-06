@@ -5,7 +5,7 @@ const {
 } = require('sequelize');
 
 
-class User extends Model {}
+class Post extends Model {}
 
 Post.init({
     id: {
@@ -41,4 +41,4 @@ Post.init({
     modelName: 'user'
 });
 
-module.exports = User;
+module.exports = Post;
