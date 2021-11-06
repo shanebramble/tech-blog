@@ -5,6 +5,7 @@ const {
 } = require('sequelize');
 
 
+// Create Post Model
 class Post extends Model {}
 
 Post.init({
@@ -14,31 +15,26 @@ Post.init({
         primaryKey: true,
         autoIncrement: true
     },
-    username: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    email: {
+    post_body: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            isEmail: true
-        }
+        allowNull: false
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [4]
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
         }
     }
 }, {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'post'
 });
 
 module.exports = Post;

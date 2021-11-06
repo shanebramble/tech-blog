@@ -5,7 +5,20 @@ const Post = require('./Post');
 
 
 // Sequelize Associations
+Post.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+});
 
+// Post.hasMany(Comment, {
+//     foreignKey: 'postId',
+//     onDelete: 'CASCADE'
+// });
+
+// Comment.belongsTo(User, {
+//     foreignKey: 'userId',
+//     onDelete: 'CASCADE'
+// });
 
 
 
